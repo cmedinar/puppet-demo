@@ -12,6 +12,11 @@ file { '/etc/httpd/conf.d/tomcat.conf':
   require => Package['httpd'],
   notify => Service['httpd'],
 }
-
+file { '/var/www/html/index.html':
+  ensure => present,
+  source => "/vagrant/puppet-demo/session2/final/files/index.html",
+  require => Package['httpd'],
+  notify => Service['httpd'],
+}
 
 }
