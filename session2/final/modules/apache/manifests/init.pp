@@ -18,5 +18,12 @@ file { '/var/www/html/index.html':
   require => Package['httpd'],
   notify => Service['httpd'],
 }
+file { '/var/www/html/error.html':
+  ensure => present,
+  source => "/vagrant/puppet-demo/session2/final/files/error.html",
+  require => Package['httpd'],
+  notify => Service['httpd'],
+}
+
 
 }
